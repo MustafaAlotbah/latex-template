@@ -1,0 +1,181 @@
+% code_light.sty - Code syntax highlighting theme (light)
+% Configures syntax highlighting for code listings
+
+\ProvidesPackage{themes/code_light}
+
+\RequirePackage{listings}
+\RequirePackage{xcolor}
+
+% ========================================
+% Code Font Selection
+% ========================================
+% Try to load modern monospace fonts (Fira Code or Cascadia Mono)
+% Falls back to default if not available
+\IfFileExists{FiraCode.sty}{
+    \RequirePackage[scale=0.85]{FiraCode}
+    \newcommand{\codefont}{\FiraCode}
+}{
+    \IfFileExists{FiraMono.sty}{
+        \RequirePackage[scale=0.85]{FiraMono}
+        \newcommand{\codefont}{\ttfamily}
+    }{
+        % Fallback to default monospace
+        \newcommand{\codefont}{\ttfamily}
+    }
+}
+
+% ========================================
+% Code Theme Colors
+% ========================================
+% Colors matching the modern dark IDE theme style
+\definecolor{codeBackground}{RGB}{255, 255, 255}    % Pure white background
+\definecolor{codeKeyword}{RGB}{175, 95, 215}        % Purple/magenta for keywords (const, let, function)
+\definecolor{codeString}{RGB}{230, 105, 80}         % Coral/orange-red for strings
+\definecolor{codeComment}{RGB}{110, 120, 135}       % Gray for comments
+\definecolor{codeNumber}{RGB}{104, 180, 230}        % Light blue/cyan for numbers
+\definecolor{codeFunction}{RGB}{220, 180, 70}       % Yellow/gold for function names
+\definecolor{codeType}{RGB}{78, 201, 176}           % Teal/cyan for types/classes
+\definecolor{codeIdentifier}{RGB}{19, 65, 89}       % Light blue for identifiers/variables
+\definecolor{codeFrame}{RGB}{220, 220, 225}         % Light gray for frame
+
+% ========================================
+% General Listing Style
+% ========================================
+% No background color in listings - mdframed will provide it
+\lstset{
+    basicstyle=\codefont\footnotesize,
+    commentstyle=\color{codeComment}\itshape,
+    keywordstyle=\color{codeKeyword}\bfseries,
+    stringstyle=\color{codeString},
+    numberstyle=\codefont\footnotesize\color{codeComment},
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=true,
+    frame=none,
+    numbers=left,
+    numbersep=10pt,
+    tabsize=4,
+    captionpos=t,
+    abovecaptionskip=5pt,
+    belowcaptionskip=5pt,
+    xleftmargin=0pt,
+    xrightmargin=0pt,
+    aboveskip=0pt,
+    belowskip=0pt
+}
+
+% ========================================
+% Mdframed style for solid background (fixes rendering artifacts)
+% ========================================
+\mdfdefinestyle{codeboxlight}{
+    backgroundcolor=codeBackground,
+    linecolor=codeBackground,
+    linewidth=0pt,
+    innerleftmargin=8pt,
+    innerrightmargin=8pt,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    skipabove=5pt,
+    skipbelow=15pt,
+    startcode={},
+    endcode={\normalcolor}
+}
+
+% Automatically surround lstlisting with mdframed
+\surroundwithmdframed[style=codeboxlight]{lstlisting}
+
+% ========================================
+% C++ Syntax Highlighting (Xcode-style)
+% ========================================
+\lstdefinestyle{cpp}{
+    language=C++,
+    morekeywords={
+        override, final, nullptr, constexpr, noexcept,
+        concept, requires, co_await, co_return, co_yield,
+        auto, decltype, typename
+    },
+    keywordstyle=\color{codeKeyword}\bfseries,
+    keywordstyle=[2]\color{codeType}\bfseries,
+    keywords=[2]{
+        string, vector, map, set, list, deque, queue,
+        stack, priority_queue, pair, tuple, array,
+        shared_ptr, unique_ptr, weak_ptr,
+        int, double, float, char, bool, void, long, short,
+        size_t, uint8_t, uint16_t, uint32_t, uint64_t
+    },
+    keywordstyle=[3]\color{codeFunction}\bfseries,
+    keywords=[3]{
+        printf, scanf, malloc, free, sizeof,
+        std, cout, cin, endl, cerr, push_back, size,
+        begin, end, insert, erase, find
+    },
+    identifierstyle=\color{codeIdentifier},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]'
+}
+
+% ========================================
+% Java Syntax Highlighting (Xcode-style)
+% ========================================
+\lstdefinestyle{java}{
+    language=Java,
+    morekeywords={
+        var, record, sealed, permits, yield,
+        instanceof, synchronized
+    },
+    keywordstyle=\color{codeKeyword}\bfseries,
+    keywordstyle=[2]\color{codeType}\bfseries,
+    keywords=[2]{
+        String, Integer, Double, Boolean, Long, Float,
+        Character, Byte, Short, Object, Class,
+        ArrayList, HashMap, HashSet, LinkedList,
+        List, Map, Set, Queue, Stack, Collection,
+        int, double, float, char, boolean, void, long, byte, short
+    },
+    keywordstyle=[3]\color{codeFunction}\bfseries,
+    keywords=[3]{
+        System, out, in, println, print, printf,
+        Scanner, Math, Thread, Exception,
+        add, remove, get, put, size, isEmpty, contains
+    },
+    identifierstyle=\color{codeIdentifier},
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]",
+    morestring=[b]',
+    sensitive=true
+}
+
+% ========================================
+% Python Syntax Highlighting (Xcode-style bonus)
+% ========================================
+\lstdefinestyle{python}{
+    language=Python,
+    morekeywords={
+        as, with, yield, async, await, nonlocal,
+        match, case
+    },
+    keywordstyle=\color{codeKeyword}\bfseries,
+    keywordstyle=[2]\color{codeType}\bfseries,
+    keywords=[2]{
+        int, str, list, dict, set, tuple, bool,
+        float, bytes, object, type, None, True, False
+    },
+    keywordstyle=[3]\color{codeFunction}\bfseries,
+    keywords=[3]{
+        print, len, range, enumerate, zip, map,
+        filter, sorted, sum, min, max, abs,
+        append, extend, remove, pop, keys, values, items
+    },
+    identifierstyle=\color{codeIdentifier},
+    morecomment=[l]{\#},
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[s]{"""}{"""},
+    morestring=[s]{'''}{'''}
+}
+
+\endinput
+

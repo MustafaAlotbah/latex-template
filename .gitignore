@@ -1,0 +1,15 @@
+
+/build
+*.aux
+*.log
+*.pdf
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+*.lot
+*.lof
+*.idx
+*.ilg
+*.ind
+*.loa

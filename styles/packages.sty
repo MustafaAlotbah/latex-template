@@ -1,0 +1,54 @@
+% packages.sty - Common LaTeX packages
+% This file contains frequently used packages for LaTeX documents
+
+\ProvidesPackage{styles/packages}
+
+% Encoding and language
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[english]{babel}
+
+% Mathematics
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{latexsym}
+\RequirePackage{mathabx}
+
+% Graphics and figures
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{subfig}
+\RequirePackage[mode=buildnew]{standalone}  % Requires -shell-escape
+\RequirePackage{wrapfig}
+
+% Tables
+\RequirePackage{booktabs}
+\RequirePackage{multirow}
+\RequirePackage{longtable}
+
+% Colors
+\RequirePackage{xcolor}
+
+% Hyperlinks and references
+% Note: hyperref colors are configured in theme files
+\RequirePackage{hyperref}
+\RequirePackage{cleveref}
+
+% Code listings
+\RequirePackage{listings}
+\RequirePackage{verbatim}
+\RequirePackage[framemethod=tikz]{mdframed}  % For solid code backgrounds
+
+% Bibliography
+\RequirePackage[backend=biber,style=numeric,sorting=none]{biblatex}
+
+% Misc utilities
+\RequirePackage{lipsum}  % For dummy text
+\RequirePackage{enumitem}  % Better lists
+\RequirePackage{parskip}  % Better paragraph spacing
+\RequirePackage{multicol}  % Multiple columns
+
+\endinput
+

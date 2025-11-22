@@ -1,0 +1,43 @@
+% formatting.sty - Page formatting and styling
+% Customize document appearance here
+
+\ProvidesPackage{styles/formatting}
+
+% Font
+\RequirePackage{charter}
+
+% Page geometry
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\RequirePackage[
+    letterpaper,
+    top=2cm,
+    bottom=2cm,
+    left=2cm,
+    right=3cm,
+    marginparwidth=1.75cm
+]{geometry}
+
+% Headers and footers
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\fancyfoot[C]{}
+
+% Note: Section formatting (titlesec) is now in theme files
+
+% Hyperlink metadata (requires hyperref from packages.sty)
+% Note: hyperlink colors are set in theme files
+\hypersetup{
+    pdftitle={Document Title},
+    pdfauthor={Author Name},
+    pdfsubject={Subject},
+    pdfkeywords={keyword1, keyword2}
+}
+
+% Note: Code listing styling is now in code theme files
+% Note: Numbering depth and TOC depth are now in theme files
+
+\endinput
+

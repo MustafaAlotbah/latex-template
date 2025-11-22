@@ -1,0 +1,84 @@
+% default_light.sty - Default light theme
+% Controls colors, fonts, numbering, and depth settings
+
+\ProvidesPackage{themes/default_light}
+
+% ========================================
+% Theme Colors
+% ========================================
+\RequirePackage{xcolor}
+
+% Define theme colors
+\definecolor{themeBackground}{RGB}{255, 255, 255}  % White background
+\definecolor{themeText}{RGB}{0, 0, 0}              % Black text
+\definecolor{themeLink}{RGB}{0, 0, 0}              % Black links (same as text)
+
+% Section heading colors (hierarchical, eye-relaxing milky tones)
+\definecolor{sectionColor}{RGB}{165, 75, 65}       % Warm terracotta/burnt sienna
+\definecolor{subsectionColor}{RGB}{0, 100, 130}    % Teal/dark cyan (kept - user's favorite)
+\definecolor{subsubsectionColor}{RGB}{85, 115, 80} % Sage/olive green
+\definecolor{paragraphColor}{RGB}{95, 85, 75}      % Warm gray/taupe
+
+% Apply background color
+\pagecolor{themeBackground}
+
+% Apply text color
+\color{themeText}
+
+% ========================================
+% Hyperlink Colors
+% ========================================
+% Override hyperref colors to match theme
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    allcolors=themeLink,  % All links use theme link color (same as text)
+    linkcolor=themeLink,
+    urlcolor=themeLink,
+    citecolor=themeLink,
+    filecolor=themeLink
+}
+
+% ========================================
+% Font Settings
+% ========================================
+% Font size is set in document class, but you can adjust here if needed
+% \renewcommand{\normalsize}{\fontsize{12pt}{14pt}\selectfont}
+
+% ========================================
+% Section Heading Formatting
+% ========================================
+\RequirePackage{titlesec}
+
+% Section (level 1)
+\titleformat{\section}
+{\normalfont\Large\bfseries\color{sectionColor}}
+{\thesection}{1em}{}
+
+% Subsection (level 2)
+\titleformat{\subsection}
+{\normalfont\large\bfseries\color{subsectionColor}}
+{\thesubsection}{1em}{}
+
+% Subsubsection (level 3)
+\titleformat{\subsubsection}
+{\normalfont\normalsize\bfseries\color{subsubsectionColor}}
+{\thesubsubsection}{1em}{}
+
+% Paragraph (level 4)
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries\color{paragraphColor}}
+{\theparagraph}{1em}{}
+
+% ========================================
+% Numbering and Depth Settings
+% ========================================
+% Section numbering depth (how deep to number sections)
+% 0=chapter, 1=section, 2=subsection, 3=subsubsection, 4=paragraph, 5=subparagraph
+\setcounter{secnumdepth}{4}
+
+% Table of contents depth (how deep to show in TOC)
+\setcounter{tocdepth}{4}
+
+\endinput
+

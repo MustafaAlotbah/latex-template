@@ -1,0 +1,47 @@
+% Results section
+\section{Results}
+\label{sec:results}
+
+Present your results in this section.
+
+\subsection{Findings}
+\label{sec:findings}
+
+Summarize the key findings of your work.
+
+\subsection{Example Table}
+\label{sec:example-table}
+
+Here's an example table using the \texttt{booktabs} package:
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Method} & \textbf{Accuracy} & \textbf{Time (s)} \\
+        \midrule
+        Method A & 92.5\% & 1.2 \\
+        Method B & 95.3\% & 2.1 \\
+        Method C & 89.7\% & 0.8 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Comparison of different methods}
+    \label{tab:comparison}
+\end{table}
+
+You can reference this table using \tabref{comparison}.
+
+\subsection{Example Figure Placeholder}
+\label{sec:example-figure}
+
+You can include figures like this:
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{path/to/image.pdf}
+    \fbox{\parbox{0.8\textwidth}{\centering [Your figure goes here]}}
+    \caption{Example figure caption}
+    \label{fig:example}
+\end{figure}
+
+Reference the figure using \figref{example}.
+

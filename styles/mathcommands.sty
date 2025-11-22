@@ -1,0 +1,47 @@
+% mathcommands.sty - Mathematical commands and operators
+% Custom math commands and shortcuts
+
+\ProvidesPackage{styles/mathcommands}
+
+% Mathematical sets
+\newcommand{\E}{\mathbb{E}}  % Expected value
+\newcommand{\R}{\mathbb{R}}  % Real numbers
+\newcommand{\N}{\mathbb{N}}  % Natural numbers
+\newcommand{\C}{\mathbb{C}}  % Complex numbers
+\newcommand{\K}{\mathbb{K}}  % Field K
+\newcommand{\Z}{\mathbb{Z}}  % Integers
+\newcommand{\Q}{\mathbb{Q}}  % Rational numbers
+
+% Vectors and matrices
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+
+% Mathematical operators
+% \newcommand{\det}{\text{det }}  % Commented out - conflicts with built-in \det
+\newcommand{\diag}{\text{diag }}
+\newcommand{\mspan}{\text{span }}
+\newcommand{\tr}{\text{tr }}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Calculus
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\deriv}[2]{\frac{\diff #1}{\diff #2}}
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\U}{\mathbf{U}}
+\newcommand{\V}{\mathbf{V}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bv}{\mathbf{v}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\T}{\mathsf{T}}
+
+\endinput
+

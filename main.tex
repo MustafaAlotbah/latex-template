@@ -1,0 +1,70 @@
+% Main document
+\documentclass[12pt,a4paper]{article}
+
+% ========================================
+% Load custom style files
+% ========================================
+\usepackage{styles/packages}        % Common packages
+\usepackage{themes/default_light}   % Theme (colors, fonts, numbering, depth)
+\usepackage{themes/code_dark}       % Code syntax highlighting theme (code_light, code_dark)
+\usepackage{styles/mathcommands}    % Mathematical commands and operators
+\usepackage{styles/customcommands}  % Custom commands and macros
+\usepackage{styles/formatting}      % Page formatting and styling
+
+% ========================================
+% Document metadata
+% ========================================
+\title{Software Report}
+\author{Mustafa Alotbah}
+\date{\today}
+
+% ========================================
+% Bibliography (optional)
+% ========================================
+% Uncomment and specify your .bib file if using bibliography
+% \addbibresource{references.bib}
+
+% ========================================
+% Begin document
+% ========================================
+\begin{document}
+
+% Title page
+\maketitle
+
+% Abstract (optional)
+\begin{abstract}
+    This is a brief summary of your document. Replace this with your own abstract text.
+\end{abstract}
+
+% Table of contents (optional)
+\tableofcontents
+\newpage
+
+% ========================================
+% Main content sections
+% ========================================
+% Each section is in a separate file for better organization
+% You can add, remove, or reorder these as needed
+
+\input{sections/introduction}
+\input{sections/methodology}
+\input{sections/results}
+\input{sections/code_examples}
+\input{sections/conclusion}
+
+% ========================================
+% Bibliography (optional)
+% ========================================
+% Uncomment if using bibliography
+% \newpage
+% \printbibliography
+
+% ========================================
+% Appendices (optional)
+% ========================================
+% \newpage
+% \appendix
+% \input{sections/appendix}
+
+\end{document}
